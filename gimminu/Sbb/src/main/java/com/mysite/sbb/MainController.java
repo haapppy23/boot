@@ -1,17 +1,14 @@
 package com.mysite.sbb;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
+@RequiredArgsConstructor
 @Controller
 public class MainController {
     @GetMapping("/")
-    public String Index(){
-        return "index";
-    }
-    @GetMapping("/board")
-    public String Board(){
-        return "board";
+    public String root() {
+        return "redirect:/question/list";
     }
 
 }
