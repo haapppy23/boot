@@ -23,7 +23,7 @@ class SbbApplicationTests {
     @Autowired
     private QuestionRepository questionRepository;
 
-    
+
     void testJpa() {        
         Question q1 = new Question();
         q1.setSubject("sbb가 무엇인가요?");
@@ -74,7 +74,7 @@ class SbbApplicationTests {
         q.setSubject("수정된 제목");
         this.questionRepository.save(q);
     }
-   
+
     void testJpaDel() {
     	assertEquals(2,this.questionRepository.count());
     	Optional<Question> oq = this.questionRepository.findById(1);
@@ -108,7 +108,7 @@ class SbbApplicationTests {
     	assertEquals(2,a.getQuestion().getId());
     }
     
-    @Test
+   @Test
     void testJpaAnsQ3() {
     	Optional<Question> oq=this.questionRepository.findById(2);
     	assertTrue(oq.isPresent());
