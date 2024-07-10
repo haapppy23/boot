@@ -29,8 +29,11 @@ public class Question {
 
 	    private LocalDateTime createDate;
 	    
+	    private String image1;
+	    
 	    @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE) 
 	    private List<Answer> answerList; 
+	    
 	
 
 }

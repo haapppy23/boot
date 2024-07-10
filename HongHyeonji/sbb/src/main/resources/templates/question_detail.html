@@ -18,6 +18,11 @@
             </div>
         </div>
     </div>
+    <!-- 사진 -->
+    <div class="mb-3">
+      <img th:src="|${downpath}/${question.image1}|" height="100px">
+    </div>
+   
     <!-- 답변의 갯수 표시 -->
     <h5 class="border-bottom my-3 py-2" 
         th:text="|${#lists.size(question.answerList)}개의 답변이 있습니다.|"></h5>
