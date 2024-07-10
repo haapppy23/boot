@@ -44,20 +44,22 @@ public class QuestionService {
 	
 	 public void create(String subject, String content, MultipartFile file1, MultipartFile file2, MultipartFile file3 ) throws IOException {
 		   Question q = new Question();
+		   UUID uuid = UUID.randomUUID();
 		   
-		    UUID uuid = UUID.randomUUID();
-			String fileName1 = uuid+"_"+file1.getOriginalFilename();
-			s3Service.uploadFile(file1, fileName1);
-			q.setImage1(fileName1);
+		   if(file1!=null&&!file1.isEmpty()) {
+				String fileName1 = uuid+"_"+file1.getOriginalFilename();
+				s3Service.uploadFile(file1, fileName1);
+				q.setImage1(fileName1);
+		   }
 			
-			if(file2!=null) {
+			if(file2!=null&&!file2.isEmpty()) {
 				uuid = UUID.randomUUID();
 				String fileName2 = uuid+"_"+file2.getOriginalFilename();
 				s3Service.uploadFile(file2, fileName2);
 				q.setImage2(fileName2);
 			}
 			
-			if(file3!=null) {
+			if(file3!=null&&!file3.isEmpty()) {
 				uuid = UUID.randomUUID();
 				String fileName3 = uuid+"_"+file3.getOriginalFilename();
 				s3Service.uploadFile(file3, fileName3);
