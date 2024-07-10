@@ -51,11 +51,12 @@ public class QuestionController {
     }
 	
 	@PostMapping("/create")
-    public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult, @RequestParam("file") MultipartFile file) throws IOException {
+    public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult, @RequestParam("file1") MultipartFile file1,
+    		@RequestParam("file2") MultipartFile file2, @RequestParam("file3") MultipartFile file3) throws IOException {
         if (bindingResult.hasErrors()) {
             return "question_form";
         }
-        this.questionService.create(questionForm.getSubject(), questionForm.getContent(), file);
+        this.questionService.create(questionForm.getSubject(), questionForm.getContent(), file1, file2, file3);
         return "redirect:/question/list";
     }
 

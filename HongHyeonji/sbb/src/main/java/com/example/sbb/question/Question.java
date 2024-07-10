@@ -30,6 +30,8 @@ public class Question {
 	    private LocalDateTime createDate;
 	    
 	    private String image1;
+	    private String image2;
+	    private String image3;
 	    
 	    @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE) 
 	    private List<Answer> answerList; 
